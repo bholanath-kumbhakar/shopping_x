@@ -1,0 +1,12 @@
+{% extends 'store/base.html' %}
+{% load static %}
+{% block content %}
+<center>
+    <h3 style="color: red;">Sorry You Are Not Logged IN</h3><hr>
+    <img src="{% static 'store/images/OOPS.jpeg' %}" alt="">
+    <h3>Login To See The Wish List:</h3>
+    <a class="btn btn-success" href="/signin/" role="button">Log In</a>
+
+</center>
+
+{% endblock %}

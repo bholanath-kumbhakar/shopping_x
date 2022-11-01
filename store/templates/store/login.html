@@ -1,0 +1,36 @@
+
+
+{% extends 'store/base.html' %}
+{ % load static% }
+{% block content %}
+
+<div class='formbody'>
+    <form method="POST" class="loginform">
+        {% csrf_token %}
+        <div>
+            <h3 style="text-align: center; color:blue">Login Form</h3>
+        </div>
+        <div class="form-outline mb-4">
+            <label class="form-label" for="">Username</label>
+            <input type="number" name="Phone_number" class="form-control" required/><br>
+        </div>
+        <div class="form-outline mb-4">
+            <label class="form-label text" for="">Password</label>
+            <input type="password" name="Password" class="form-control" required/><br>
+        </div>
+        <center>
+            <input type="submit" value="Signin" class="btn btn-success login_btn">
+            <div class="row mb-4">    
+                <div class="col text">
+                <a href="#!">Forgot password?</a>
+                </div>
+            </div>
+        </center>
+        <div class="text-center">
+            <p>Not a member? <a href="{% url 'signup' %}">Register</a></p>
+            <p>or sign up with:</p>
+        </div>
+    </form>
+</div>
+
+{% endblock %}

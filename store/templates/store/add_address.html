@@ -1,0 +1,102 @@
+{% extends 'store/base.html' %} {% load static %} {% block content%}
+<div class="row">
+  <div class="col-2">{% include 'store/sidebaar.html' %}</div>
+    <div class="col-10">
+        <h3 style="margin-left: 160px;color: royalblue;">
+            Add Your New Address
+        </h3><hr>
+        <div class="row " style="margin-left: 55px; margin-top: 20px;">
+          <div class="col-md-8 mb-4">
+            <div class="card mb-4">
+              <div class="card-header py-3">
+                <h5 class="mb-0">Biling details</h5>
+              </div>
+              <div class="card-body">
+                <form method="POST" action="">
+                  {% csrf_token %}
+                  <!-- Message input -->
+
+
+                  <div class="form-outline mb-4">
+                    <label class="form-label" for="form7Example5">Name</label>
+                    <input
+                      type="text"
+                      id="form7Example5"
+                      name="Name"
+                      class="form-control"
+                    />
+                    
+                  </div>
+
+
+                  <div class="form-outline mb-4">
+                    <label class="form-label" for="form7Example5">MObile</label>
+                    <input
+                      type="number"
+                      id="form7Example5"
+                      name="Mobile"
+                      required
+                      class="form-control"
+                    />
+                    
+                  </div>
+                  <div class="form-outline mb-4">
+                    <label class="form-label" for="form7Example7">Address</label>
+                    <textarea
+                      class="form-control"
+                      id="form7Example7"
+                      rows="4"
+                      name="Address"
+                    ></textarea>
+                    
+                  </div>
+                  <div class="form-outline mb-4">
+                    <label class="form-label" for="form7Example5">Pin</label>
+                    <input
+                      type="number"
+                      id="form7Example5"
+                      name="Pin"
+                      required
+                      class="form-control"
+                    />
+                    
+                  </div>
+                  <div class="form-outline mb-4">
+                    <label class="form-label" for="form7Example5">Dist</label>
+                    <input
+                      type="text"
+                      id="form7Example5"
+                      name="Dist"
+                      class="form-control"
+                    />
+                    
+                  </div>
+                  <div class="form-outline mb-4">
+                    <label class="form-label" for="form7Example5">State</label>
+                    <input
+                      type="text"
+                      id="form7Example5"
+                      name="State"
+                      class="form-control"
+                    />
+                    
+                  </div>
+                  <div class="form-outline mb-4">
+                    <label class="form-label" for="form7Example5">Country</label>
+                    <input
+                      type="text"
+                      id="form7Example5"
+                      name="Country"
+                      class="form-control"
+                    />
+                    
+                  </div>
+                  <input type="submit" class="btn btn-success" />
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    {% endblock %}

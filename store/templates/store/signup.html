@@ -1,0 +1,71 @@
+<style>
+.form{
+  margin-left: 300px;
+  margin-right: 260px;
+  
+  background-color: rgb(238, 238, 214);
+}
+</style>
+
+{% extends 'store/base.html' %}
+{% load static %} 
+{% block content %} 
+
+<section class="signup_section">
+  <div class="signupform">
+    <div class="reg" style="text-align: center;">
+      <h2 style="color: rgb(6, 31, 54);">Registration Form</h2>
+    </div>
+    <form method="POST" class="form">
+        {% csrf_token %}
+      <div class="mb-3">
+        <label class="form-label">Phone Number</label>
+        <input
+          type="number"
+          class="form-control"
+          name="Phone_number"
+          required
+        />
+      </div>
+      <div class="mb-3">
+        <label for="exampleInputPassword1" class="form-label">First Name</label>
+        <input
+          type="text"
+          class="form-control"
+          name="First_name"
+          required
+        />
+      </div>
+      <div class="mb-3">
+        <label for="exampleInputPassword1" class="form-label">Last Name</label>
+        <input
+          type="text"
+          class="form-control"
+          name="Last_name"
+          required
+        />
+      </div>
+      <div class="mb-3">
+        <label for="exampleInputPassword1" class="form-label">Email</label>
+        <input
+          type="text"
+          class="form-control"
+          name="Email"
+        />
+      </div>
+      <div class="mb-3">
+        <label  class="form-label">Password</label>
+        <input
+          type="password"
+          class="form-control"
+          name="Password"
+          required
+        />
+      </div>
+
+      <button type="submit" class="btn btn-success">Submit</button>
+    </form>
+  </div>
+</section>
+
+{% endblock%}

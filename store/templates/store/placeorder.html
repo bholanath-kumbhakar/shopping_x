@@ -1,0 +1,61 @@
+
+{% extends 'store/base.html' %} {% load static %} {% block content%}
+<style>
+.box{
+  margin-left: 20px;
+}
+</style>
+
+<form action="" method="POST">
+  {% csrf_token%}
+
+  <div class="row">
+
+    <h2 style="text-align: center; margin-top: 30px;color: blue;">Select Your Delivery Address</h2><hr>
+  
+    {% for i in address %}
+    <div class="card border-success  mb-3 box" style="max-width: 18rem;">
+      <div class="card-header">Address-{{forloop.counter}}</div>
+      <div class="card-body text-success">
+        <ul>
+          <li>{{i.name}}</li>
+          <li>{{i.mobile}}</li>
+          <li>{{i.address}}</li><br>
+          <input type="checkbox" value="{{i.id}}" name="checkbox">
+        </ul>
+      </div>
+    </div>
+    {% endfor %}
+  <div class="row">
+  
+    <h2>payment process</h2><hr>
+  
+    <div class="card box">
+        <div class="card-header">
+          Select Payment Mode
+        </div>
+        
+        <div class="card-body">
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="cod" id="" value="cod" />
+                <label class="form-check-label" for=""><h3>COD</h3></label>
+              </div>
+              
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="online" id="" value="online" />
+                <label class="form-check-label" for=""><h3>Online</h3></label>
+              </div>
+              <hr>
+              <button class="btn btn-warning">
+                Place Order
+              </button>
+        </div>
+      </div>
+
+  </div>
+
+
+</form>
+
+  
+{% endblock %}

@@ -1,0 +1,46 @@
+{% extends 'store/base.html' %} {% load static %} {% block content%}
+<div class="row">
+  <div class="col-2">{% include 'store/sidebaar.html' %}</div>
+
+  <div class="col-10">
+    <h4>Your Orders</h4>
+    <table class="table table-warning table-striped">
+      <thead class="">
+        <tr>
+          <th scope="col">Product</th>
+          <th scope="col">Address</th>
+          <th scope="col">status</th>
+          <th scope="col">Payment Type</th>
+          <th scope="col">Order date</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for i in order %}
+        <tr>
+          <td>
+            <a href="{% url 'productview' i.product.id %}">
+              <div>
+                <img src="{{i.product.image.url}}" style="height: 60px; width: 70px;">
+            </div>
+            {{i.product.title}}
+            </a>
+          </td>
+          <td>{{i.address}}</td>
+          <td>{{i.status}}</td>
+          <td>{{i.payment_type}}</td>
+          <td>{{i.created_at}}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+
+
+
+</div>
+
+
+
+
+  
+  {% endblock %}

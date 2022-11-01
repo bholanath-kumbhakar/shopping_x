@@ -1,0 +1,85 @@
+{% extends 'store/base.html' %} {% load static %} {% block content%}
+<style>
+  .edit_form {
+    margin-right: 100px;
+    margin-left: 100px;
+    margin-bottom: 100px;
+    border: 1px solid rgb(209, 203, 203);
+    border-radius: 10px;
+    padding: 30px;
+    margin-top: 20px;
+  }
+  .heading{
+    text-align: center    
+  }
+</style>
+
+<div class="row form">
+  <div class="col-2">{% include 'store/sidebaar.html' %}</div>
+  <div class="col-10">
+    <div>
+      <form method="POST" class="edit_form">
+      <h4 class="heading" style="color: blue">Edit Your Profile</h4>
+      <hr />
+        {% csrf_token %}
+        <div class="mb-3">
+          <label class="form-label">Phone Number</label>
+          <input
+            readonly
+            class="form-control"
+            name="Phone_number"
+            required
+            value="{% if user.is_authenticated %} {{request.user.username}} {% endif %}"
+          />
+        </div>
+        <div class="mb-3">
+          <label for="exampleInputPassword1" class="form-label"
+            >First Name</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="First_name"
+            required
+            value="{% if user.is_authenticated %} {{request.user.first_name}} {% endif %}"
+          />
+        </div>
+        <div class="mb-3">
+          <label for="exampleInputPassword1" class="form-label"
+            >Last Name</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="Last_name"
+            required
+            value="{% if user.is_authenticated %} {{request.user.last_name}} {% endif %}"
+          />
+        </div>
+        <div class="mb-3">
+          <label for="exampleInputPassword1" class="form-label">Email</label>
+          <input
+            type="text"
+            class="form-control"
+            name="Email"
+            value="{% if user.is_authenticated %} {{request.user.email}} {% endif %}"
+          />
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Password</label>
+          <input
+            type="password"
+            class="form-control"
+            name="Password"
+            required
+            value="{% if user.is_authenticated %} {{request.user.password}} {% endif %}"
+          />
+        </div>
+
+        <button type="submit" class="btn btn-success">Update</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

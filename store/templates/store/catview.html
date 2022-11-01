@@ -1,0 +1,39 @@
+{% extends 'store/base.html' %} 
+{% block content %}
+<div class="container my-5">
+  <div class="row d-flex justify-content-center main_container">
+    <div class="col-12">
+      <div id="carousel" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <div class="row">
+              {% for i in products %}
+              <div class="col-12 col-md-6 col-xl-3 mb-4 cards">
+                <div class="card mr-3" style="height: 300px; width: 200px">
+                  <div class="imagesize">
+                    <img
+                      src="{{i.image.url}}"
+                      style="width: 200px; height: 150px"
+                    />
+                  </div>
+                  <div class="card-body">
+                    <div class="title">
+                      <h5 class="card-title" style="color: blue;">{{i.title}}</h5>
+                    </div>
+                    <p>{{i.tag}}</p>
+                    <div class="description">
+                      <strong class="card-text hidetext"> Rs-{{i.price}}</strong>
+                    </div>
+                    <a href="{% url 'productview' i.id %}">View...</a>
+                  </div>
+                </div>
+              </div>
+              {% endfor %}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

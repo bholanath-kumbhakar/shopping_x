@@ -1,0 +1,74 @@
+<div class="col-10">
+    <div class="row " style="margin-left: 55px;">
+      <div class="col-md-8 mb-4">
+        <div class="card mb-4">
+          <div class="card-header py-3">
+            <h5 class="mb-0">Biling details</h5>
+          </div>
+          <div class="card-body">
+            <form method="POST" action="">
+              {% csrf_token %}
+              <!-- Message input -->
+              <div class="form-outline mb-4">
+                <textarea
+                  class="form-control"
+                  id="form7Example7"
+                  rows="4"
+                  name="Address"
+                ></textarea>
+                <label class="form-label" for="form7Example7">Address</label>
+              </div>
+              <div class="form-outline mb-4">
+                <input
+                  type="number"
+                  id="form7Example5"
+                  name="Pin"
+                  required
+                  class="form-control"
+                />
+                <label class="form-label" for="form7Example5">Pin</label>
+              </div>
+              <div class="form-outline mb-4">
+                <input
+                  type="text"
+                  id="form7Example5"
+                  name="Dist"
+                  class="form-control"
+                />
+                <label class="form-label" for="form7Example5">Dist</label>
+              </div>
+              <div class="form-outline mb-4">
+                <input
+                  type="text"
+                  id="form7Example5"
+                  name="State"
+                  class="form-control"
+                />
+                <label class="form-label" for="form7Example5">State</label>
+              </div>
+              <div class="form-outline mb-4">
+                <input
+                  type="text"
+                  id="form7Example5"
+                  name="Country"
+                  class="form-control"
+                />
+                <label class="form-label" for="form7Example5">Country</label>
+              </div>
+              <input type="submit" class="btn btn-success" />
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,74 @@
+{% extends 'store/base.html' %} {% block content %}
+<style>
+  .imagesize {
+    width: 125x;
+    height: 125px;
+  }
+</style>
+<div class="container my-5">
+  <div class="row d-flex justify-content-center main_container">
+    <div class="col-12">
+      <div id="carousel" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <div class="row">
+              {% for i in wishlist_obj.product.all%}
+              <div class="col-12 col-md-6 col-xl-3 mb-4 cards cbody">
+                <div class="card mr-2">
+                  <div class="imagesize">
+                    <img
+                      src="{{i.image.url}}"
+                      class="imagesize"
+                      alt="post image"
+                    />
+                  </div>
+
+                  <div class="card-body">
+                    <div class="title">
+                      <h5 class="card-title">{{i.title}}</h5>
+                    </div>
+                    <div class="description">
+                      <p class="card-text hidetext">{{i.tag}}</p>
+                      <div>
+                        <p class="card-text hidetext">Rs-{{i.price}}</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="d-flex">
+                    <a href="{% url 'productview' i.id %}">
+                      <button type="submit" class="btn btn-info btn-sm">
+                        View
+                      </button>
+                    </a>
+                    <form action="" method="POST">
+                      {% csrf_token %}
+                      <input
+                        type="hidden"
+                        value="{{i.id}}"
+                        name="product_id"
+                      />
+                      <button
+                        style="margin-left: 40px"
+                        value="remove"
+                        name="wish_btn"
+                        type="submit"
+                        class="btn btn-danger btn-sm"
+                      >
+                        Remove
+                      </button>
+                    </form>
+                  </div>
+                </div>
+                
+              </div>
+              
+              {% endfor %}
+            </div>
+          </div>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+</div>
+{% endblock %}

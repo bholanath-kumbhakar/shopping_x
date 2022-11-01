@@ -1,0 +1,60 @@
+{% extends 'store/base.html' %}
+ {% load static %} 
+ {% block content%}
+ <style>
+   .card{
+     width: ;
+     height: ;
+   }
+ </style>
+<div class="row">
+  <div class="col-2">{% include 'store/sidebaar.html' %}</div>
+    <div class="col-10">
+      <div>
+        <div>
+          <h3 style="text-align: center; color: blue">User Delivery Address</h3>
+          <a
+            href="{% url 'add_address' %}"
+            class="btn btn-info btn-lg active"
+            role="button"
+            aria-pressed="true"
+            >Add Address</a
+          >
+        </div>
+        <hr />
+
+        <div class="row">
+          {% for i in address %}
+          <div class="col-4 box">
+            <div class="card">
+              <div class="card-body">
+                <b>Address-{{forloop.counter}}</b>
+                <ul>
+                  <li>{{i.name}}</li>
+                  <li>{{i.mobile}}</li>
+                  <li>{{i.address}}</li>
+                  <li>{{i.dist}}</li>
+                  <li>{{i.state}}</li>
+                  <li>{{i.country}}</li>
+                </ul>
+                <form action="" method="post">{% csrf_token %}
+                  <input type="hidden" name="address_id" value="{{i.id}}">
+                  <button type="submit" class="btn btn-warning">Delete</button>
+                </form>
+                
+
+              </div>
+            </div>
+          </div>
+          {% endfor %}
+          </div>
+          
+
+          
+        </div>
+      </div>
+    </div>
+
+    {% endblock %}
+  </div>
+</div>
